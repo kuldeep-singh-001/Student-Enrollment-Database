@@ -1,4 +1,4 @@
-# 🎓 Online Course Platform – SQL Joins (Inner, Left, Right, Full)
+# 🎓 Students Enrollment Database – SQL Joins (Inner, Left, Right, Full)
 
 ## Objective
 Learn to combine data from multiple tables using SQL JOINs: `INNER`, `LEFT`, `RIGHT`, and `FULL` (and how to emulate FULL where unsupported).
@@ -48,3 +48,4 @@ After this project you'll be able to:
 - Combine tables with `JOIN`s
 - Understand LEFT vs RIGHT vs INNER semantics
 - Emulate FULL OUTER JOIN where not available
+
