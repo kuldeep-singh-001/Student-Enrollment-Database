@@ -1,0 +1,52 @@
+digraph OnlineCourses {
+    rankdir=LR;
+    graph [splines=ortho, nodesep=1.0, ranksep=1.2];
+    node [shape=plaintext, fontname="Helvetica", fontsize=11];
+
+    Students [label=<
+      <TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0" CELLPADDING="6">
+        <TR><TD BGCOLOR="#4CAF50" COLSPAN="2"><B>Students</B></TD></TR>
+        <TR><TD><B>PK</B></TD><TD>student_id</TD></TR>
+        <TR><TD></TD><TD>first_name</TD></TR>
+        <TR><TD></TD><TD>last_name</TD></TR>
+        <TR><TD></TD><TD>email (UNIQUE)</TD></TR>
+        <TR><TD></TD><TD>city</TD></TR>
+      </TABLE>
+    >];
+
+    Instructors [label=<
+      <TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0" CELLPADDING="6">
+        <TR><TD BGCOLOR="#2196F3" COLSPAN="2"><B>Instructors</B></TD></TR>
+        <TR><TD><B>PK</B></TD><TD>instructor_id</TD></TR>
+        <TR><TD></TD><TD>first_name</TD></TR>
+        <TR><TD></TD><TD>last_name</TD></TR>
+        <TR><TD></TD><TD>email (UNIQUE)</TD></TR>
+      </TABLE>
+    >];
+
+    Courses [label=<
+      <TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0" CELLPADDING="6">
+        <TR><TD BGCOLOR="#FFC107" COLSPAN="2"><B>Courses</B></TD></TR>
+        <TR><TD><B>PK</B></TD><TD>course_id</TD></TR>
+        <TR><TD></TD><TD>title</TD></TR>
+        <TR><TD><B>FK</B></TD><TD>instructor_id → Instructors.instructor_id</TD></TR>
+        <TR><TD></TD><TD>price</TD></TR>
+      </TABLE>
+    >];
+
+    Enrollments [label=<
+      <TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0" CELLPADDING="6">
+        <TR><TD BGCOLOR="#9C27B0" COLSPAN="2"><B>Enrollments</B></TD></TR>
+        <TR><TD><B>PK</B></TD><TD>enrollment_id</TD></TR>
+        <TR><TD><B>FK</B></TD><TD>student_id → Students.student_id</TD></TR>
+        <TR><TD><B>FK</B></TD><TD>course_id → Courses.course_id</TD></TR>
+        <TR><TD></TD><TD>enroll_date</TD></TR>
+        <TR><TD></TD><TD>grade</TD></TR>
+      </TABLE>
+    >];
+
+    # Relationships
+    Students -> Enrollments [xlabel="1:N", color="#4CAF50"];
+    Courses -> Enrollments [xlabel="1:N", color="#FFC107"];
+    Instructors -> Courses [xlabel="1:N", color="#2196F3"];
+}
