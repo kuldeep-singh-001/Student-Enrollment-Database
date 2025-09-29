@@ -13,16 +13,10 @@ Learn to combine data from multiple tables using SQL JOINs: `INNER`, `LEFT`, `RI
 
 ## How to run (SQLite)
 1. Open DB Browser for SQLite.
-2. Create a new database `online_courses.db`.
+2. Create a new database `courses.db`.
 3. Execute `schema.sql`.
 4. Execute `data.sql`.
 5. Open and run queries from `queries.sql` (use the **SQLite** section).
-
-## How to run (MySQL)
-1. Open MySQL Workbench and create a schema (e.g. `online_courses`).
-2. Run the SQL in `schema.sql` adjusted for MySQL types (CREATE TABLE statements are compatible).
-3. Run `data.sql`.
-4. Run MySQL-specific queries in `queries.sql` (see the MySQL section for `RIGHT JOIN` and `FULL JOIN` emulation).
 
 ## Notes about dialect differences
 - **SQLite**: supports `INNER JOIN`, `LEFT OUTER JOIN` (written `LEFT JOIN`), but **does not support** `RIGHT JOIN` or `FULL OUTER JOIN`.
@@ -34,7 +28,7 @@ Learn to combine data from multiple tables using SQL JOINs: `INNER`, `LEFT`, `RI
 - `schema.sql` — schema (Students, Instructors, Courses, Enrollments)
 - `data.sql` — sample data
 - `queries.sql` — join examples (clearly labelled for SQLite and MySQL)
-- `online_courses.dot` — Graphviz DOT file to render ER diagram
+- `er_diagram.dot` — Graphviz DOT file to render ER diagram
 - `docs/er_diagram.png` — (render this from the DOT file)
 
 ## ER Diagram
@@ -44,8 +38,9 @@ Here’s how everything is connected:
 
 
 ## Outcome
-After this project you'll be able to:
+After this project, you'll be able to:
 - Combine tables with `JOIN`s
 - Understand LEFT vs RIGHT vs INNER semantics
 - Emulate FULL OUTER JOIN where not available
+
 
