@@ -12,11 +12,10 @@ Learn to combine data from multiple tables using SQL JOINs: `INNER`, `LEFT`, `RI
 - Example data and schema for Students, Instructors, Courses, Enrollments.
 
 ## How to run (SQLite)
-1. Open DB Browser for SQLite.
-2. Create a new database `courses.db`.
-3. Execute `schema.sql`.
-4. Execute `data.sql`.
-5. Open and run queries from `queries.sql` (use the **SQLite** section).
+1. Open **MySQL Workbench** (or DB Browser for SQLite).
+2. Run `schema.sql` to create the database and tables.
+3. Execute `data.sql`.
+4. Open and run queries from `queries.sql`.
 
 ## Notes about dialect differences
 - **SQLite**: supports `INNER JOIN`, `LEFT OUTER JOIN` (written `LEFT JOIN`), but **does not support** `RIGHT JOIN` or `FULL OUTER JOIN`.
@@ -42,5 +41,6 @@ After this project, you'll be able to:
 - Combine tables with `JOIN`s
 - Understand LEFT vs RIGHT vs INNER semantics
 - Emulate FULL OUTER JOIN where not available
+
 
 
