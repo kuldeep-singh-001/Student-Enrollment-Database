@@ -1,38 +1,39 @@
-PRAGMA foreign_keys = ON;
+CREATE DATABASE Student_enrollments;
+use Student_enrollments;
 
--- Students
+-- Students table
 CREATE TABLE Students (
-    student_id INTEGER PRIMARY KEY AUTOINCREMENT,
-    first_name TEXT NOT NULL,
-    last_name TEXT NOT NULL,
-    email TEXT UNIQUE,
-    city TEXT
+    student_id INT PRIMARY KEY AUTO_INCREMENT,
+    first_name VARCHAR(50) NOT NULL,
+    last_name VARCHAR(50) NOT NULL,
+    email VARCHAR(100) UNIQUE,
+    city VARCHAR(50)
 );
 
--- Instructors
+-- Instructors table
 CREATE TABLE Instructors (
-    instructor_id INTEGER PRIMARY KEY AUTOINCREMENT,
-    first_name TEXT NOT NULL,
-    last_name TEXT NOT NULL,
-    email TEXT UNIQUE
+    instructor_id INT PRIMARY KEY AUTO_INCREMENT,
+    first_name VARCHAR(50) NOT NULL,
+    last_name VARCHAR(50) NOT NULL,
+    email VARCHAR(100) UNIQUE
 );
 
--- Courses
+-- Courses table
 CREATE TABLE Courses (
-    course_id INTEGER PRIMARY KEY AUTOINCREMENT,
-    title TEXT NOT NULL,
-    instructor_id INTEGER, -- nullable: some courses may not yet have an instructor
-    price REAL NOT NULL DEFAULT 0.0,
+    course_id INT PRIMARY KEY AUTO_INCREMENT,
+    title VARCHAR(200) NOT NULL,
+    instructor_id INT,
+    price DECIMAL(10,2) NOT NULL DEFAULT 0.00,
     FOREIGN KEY (instructor_id) REFERENCES Instructors(instructor_id) ON DELETE SET NULL
 );
 
--- Enrollments
-CREATE TABLE IF NOT EXISTS Enrollments (
-    enrollment_id INTEGER PRIMARY KEY AUTOINCREMENT,
-    student_id INTEGER,
-    course_id INTEGER,
-    enroll_date TEXT NOT NULL,
-    grade TEXT,
+-- Enrollments table
+CREATE TABLE Enrollments (
+    enrollment_id INT PRIMARY KEY AUTO_INCREMENT,
+    student_id INT,
+    course_id INT,
+    enroll_date DATE NOT NULL,
+    grade VARCHAR(5),
     FOREIGN KEY (student_id) REFERENCES Students(student_id) ON DELETE CASCADE,
     FOREIGN KEY (course_id) REFERENCES Courses(course_id) ON DELETE CASCADE
 );
